@@ -4,4 +4,5 @@ class VideoGame : public Media
   public:
     int rating;
     char publisher[20];
+    int getType();
 };

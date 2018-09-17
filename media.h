@@ -6,5 +6,5 @@ class Media
     int year;
 
     //Functions
-    
+    virtual int getType();
 };

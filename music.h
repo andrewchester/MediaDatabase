@@ -5,4 +5,5 @@ class Music : public Media
     int duration;
     char artist[20];
     char publisher[20];
+    int getType();
 };

@@ -8,6 +8,8 @@
 
 int main()
 {
-  std::cout << "Sample text" << std::endl;
+  char sampleText[1024 * 1024];
+  Movie m;
+  std::cout << m.getType() << std::endl;
   return 0;
 }
