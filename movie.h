@@ -5,4 +5,5 @@ class Movie : public Media
     char director[20];
     float duration;
     int rating;
+    int getType();
 };
