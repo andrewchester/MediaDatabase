@@ -6,4 +6,5 @@ class Movie : public Media
     float duration;
     int rating;
     int getType();
+    void setAuthor(char* author);
 };

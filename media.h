@@ -8,7 +8,11 @@ class Media
     char title[20];
     int year;
 
-    //Functions
+    //Virtual Functions
     virtual int getType() = 0;
+    virtual void setAuthor(char* author) = 0;
+    
+    //Functions
+    void setTitle(char* string, int size);
 };
 #endif
