@@ -60,7 +60,6 @@ void searchArray(std::vector<Media*>* media)
   {
     int year;
     std::cout << "Enter a year: ";
-
     std::cin >> year;
     std::cin.clear();
     std::cin.ignore(100, '\n');
@@ -68,9 +67,15 @@ void searchArray(std::vector<Media*>* media)
     std::vector<Media*>::iterator it;
     for(it = media->begin(); it != media->begin(); ++it)
     {
+      std::cout << "Iterating" << std::endl;
       if((**it).year == year)
       {
-        foundResults = true;
+        if(!foundResults)
+        {
+          std::cout << "Results: ";
+          foundResults = true;
+        }
+        std::cout << std::endl;
         std::cout << "Title: " << (**it).title << std::endl;
         std::cout << "  Year: " << (**it).year << std::endl;
         if((**it).getType() == 0)
