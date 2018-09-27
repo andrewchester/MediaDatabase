@@ -63,11 +63,10 @@ void searchArray(std::vector<Media*>* media)
     std::cin >> year;
     std::cin.clear();
     std::cin.ignore(100, '\n');
-
+    
     std::vector<Media*>::iterator it;
-    for(it = media->begin(); it != media->begin(); ++it)
+    for(it = media->begin(); it != media->end(); ++it)
     {
-      std::cout << "Iterating" << std::endl;
       if((**it).year == year)
       {
         if(!foundResults)
@@ -110,7 +109,7 @@ void searchArray(std::vector<Media*>* media)
     std::cin.ignore(100, '\n');
 
     std::vector<Media*>::iterator it;
-    for(it = media->begin(); it != media->begin(); ++it)
+    for(it = media->begin(); it != media->end(); ++it)
     {
       if(strcmp((**it).title, title) == 0)
       {
@@ -240,6 +239,32 @@ void addItem(std::vector<Media*>* media)
     v->setAuthor(publisher, strlen(publisher));
 
     media->push_back(v);
+  }
+}
+void delete()
+{
+  char type;
+  std::cout << "Delete by year or title(y/t): ";
+  std::cin >> type;
+  std::cin.clear();
+  std::cin.ignore(100, '/n');
+
+  if(type == 'y')
+  {
+    int year;
+    std::cout << "Enter the year: ";
+    std::cin >> year;
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
+
+    std::vector<Media*>::iterator it;
+    for(it = media->begin(); it != media->end(); ++it)
+    {
+      if((**it).year == year)
+      {
+	
+      }
+    }
   }
 }
 int main()

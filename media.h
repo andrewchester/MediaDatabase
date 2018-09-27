@@ -11,6 +11,8 @@ class Media
     //Functions
     void setTitle(char* string, int size);
 
+    //Destructor
+    
     //Virtual Functions
     virtual int getType() = 0;
     virtual void setAuthor(char* author, int size) = 0;
