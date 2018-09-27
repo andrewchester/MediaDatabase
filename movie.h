@@ -2,9 +2,10 @@
 class Movie : public Media
 {
   public:
-    char director[20];
+    char director[50];
     float duration;
     int rating;
+
     int getType();
-    void setAuthor(char* author);
+    void setAuthor(char* author, int size);
 };

@@ -2,9 +2,10 @@
 
 int Movie::getType()
 {
-  return 1;
+  return 0;
 }
-void Movie::setAuthor(char* author)
+void Movie::setAuthor(char* author, int size)
 {
-  this->director = author;
+  for(int i = 0; i < size; i++)
+    this->director[i] = author[i];
 }

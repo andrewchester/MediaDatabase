@@ -2,8 +2,9 @@
 class Music : public Media
 {
   public:
-    int duration;
-    char artist[20];
-    char publisher[20];
+    float duration;
+    char artist[50];
+    char publisher[50];
     int getType();
+    void setAuthor(char* author, int size);
 };
