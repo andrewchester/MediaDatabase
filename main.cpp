@@ -46,6 +46,7 @@ void printArray(std::vector<Media*>* media)
     }
     std::cout << "+------------------------------------------------------------+" << std::endl;
   }
+  std::cout << std::endl;
 }
 void searchArray(std::vector<Media*>* media)
 {
@@ -63,7 +64,7 @@ void searchArray(std::vector<Media*>* media)
     std::cin >> year;
     std::cin.clear();
     std::cin.ignore(100, '\n');
-    
+
     std::vector<Media*>::iterator it;
     for(it = media->begin(); it != media->end(); ++it)
     {
@@ -138,6 +139,10 @@ void searchArray(std::vector<Media*>* media)
     }
     if(!foundResults)
       std::cout << "We've come up with nothing!" << std::endl;
+  }
+  else
+  {
+    std::cout << "Invalid input." << std::endl;
   }
 }
 void addItem(std::vector<Media*>* media)
@@ -241,13 +246,13 @@ void addItem(std::vector<Media*>* media)
     media->push_back(v);
   }
 }
-void delete()
+void deleteItem(std::vector<Media*>* media)
 {
   char type;
   std::cout << "Delete by year or title(y/t): ";
   std::cin >> type;
   std::cin.clear();
-  std::cin.ignore(100, '/n');
+  std::cin.ignore(100, '\n');
 
   if(type == 'y')
   {
@@ -262,10 +267,34 @@ void delete()
     {
       if((**it).year == year)
       {
-	
+        delete *it;
+        media->erase(it);
       }
     }
   }
+  else if(type == 't')
+  {
+    char title[50];
+    std::cout << "Enter the title: ";
+    std::cin.get(title, 50);
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
+
+    std::vector<Media*>::iterator it;
+    for (it = media->begin(); it != media->end(); ++it)
+    {
+      if(strcmp((**it).title, title) == 0)
+      {
+        delete *it;
+        media->erase(it);
+      }
+    }
+  }
+  else
+  {
+    std::cout << "Invalid input" << std::endl;
+  }
+  std::cout << media->size() << std::endl;
 }
 int main()
 {
@@ -290,6 +319,10 @@ int main()
     else if(strcmp(command, "search") == 0)
     {
       searchArray(&media);
+    }
+    else if(strcmp(command, "delete") == 0)
+    {
+      deleteItem(&media);
     }
     else if(strcmp(command, "exit") == 0)
     {
