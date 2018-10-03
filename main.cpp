@@ -268,7 +268,11 @@ void deleteItem(std::vector<Media*>* media)
       if((**it).year == year)
       {
         delete *it;
+	std::cout << "Deleted media* in media" << std::endl;
         media->erase(it);
+	std::cout << "Erased location in array" << std::endl;
+	if (media->size() == 0)
+	  return;
       }
     }
   }
@@ -286,7 +290,11 @@ void deleteItem(std::vector<Media*>* media)
       if(strcmp((**it).title, title) == 0)
       {
         delete *it;
-        media->erase(it);
+	std::cout << "Deleted iterator" << std::endl;
+	media->erase(it);
+	std::cout << "Erased iterator" << std::endl;
+	if(media->size() == 0)
+	  return;
       }
     }
   }
@@ -294,7 +302,6 @@ void deleteItem(std::vector<Media*>* media)
   {
     std::cout << "Invalid input" << std::endl;
   }
-  std::cout << media->size() << std::endl;
 }
 int main()
 {
