@@ -1,3 +1,4 @@
+//Header for videogame
 #include "media.h"
 class VideoGame : public Media
 {
