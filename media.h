@@ -1,12 +1,10 @@
+//Virtual class for all children of media(movie, music, videogame)
 #ifndef MEDIA_H
 #define MEDIA_H
 
 class Media
 {
  public:
-    //Constructor and Destructor
-    Media();
-    ~Media();
     //Variables
     char title[50];
     int year;
