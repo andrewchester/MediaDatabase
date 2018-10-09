@@ -86,7 +86,7 @@ void searchArray(std::vector<Media*>* media)
         std::cout << std::endl;
         std::cout << "Title: " << (**it).title << std::endl;
         std::cout << "  Year: " << (**it).year << std::endl;
-        //Same as printArray, just prints out variables depending on the type of Media* 
+        //Same as printArray, just prints out variables depending on the type of Media*
 	if((**it).getType() == 0)
         {
           std::cout << "  Director: " << dynamic_cast<Movie*>(*it)->director << std::endl;
@@ -157,7 +157,7 @@ void searchArray(std::vector<Media*>* media)
 //Adds an item to the array media
 void addItem(std::vector<Media*>* media)
 {
-  char type[10], author[50], publisher[50],char title[50];
+  char type[10], author[50], publisher[50], title[50];
   int rating, year;
   float duration;
 
@@ -199,7 +199,7 @@ void addItem(std::vector<Media*>* media)
     std::cin >> rating;
     std::cin.clear();
     std::cin.ignore(100, '\n');
-	  
+
     //Allocate memory for a new movie object, assign the values and add it to media
     Movie* m = new Movie();
 
@@ -281,11 +281,11 @@ void deleteItem(std::vector<Media*>* media)
     {
       if((**it).year == year)
       {
-	//Delete the pointer and remove it from the array
+	      //Delete the pointer and remove it from the array
         delete *it;
-        media->erase(it);
-	if (media->size() == 0)
-	  return;
+        it = media->erase(it); //Keeps iterator from being invalid since erase will return a valid iterator
+      	if (media->size() == 0)
+      	  return;
       }
     }
   }
@@ -302,11 +302,11 @@ void deleteItem(std::vector<Media*>* media)
     {
       if(strcmp((**it).title, title) == 0)
       {
-	//Delete item and remove it from array
+	       //Delete item and remove it from array
         delete *it;
-	media->erase(it);
-	if(media->size() == 0)
-	  return;
+      	it = media->erase(it); //Assigns it to a valid iterator object
+      	if(media->size() == 0)
+	         return;
       }
     }
   }
